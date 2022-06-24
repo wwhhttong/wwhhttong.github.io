@@ -4,11 +4,24 @@
   
   
   <entry>
+    <title>JAVA1</title>
+    <link href="/2022/06/24/JAVA1/"/>
+    <url>/2022/06/24/JAVA1/</url>
+    
+    <content type="html"><![CDATA[<p>CMD命令：&#96;&#96;&#96; </p><p> <code> 进入盘符  盘符:</code><br> <code> 回退一级 cd.. </code><br> <code> 回退根目录 cd\</code><br> <code>  清屏cls </code><br> <code> 关闭窗口 exit</code><br> <code> 进入目录 cd目录1\目录2\.... </code>  </p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>step</title>
     <link href="/2022/06/23/step/"/>
     <url>/2022/06/23/step/</url>
     
-    <content type="html"><![CDATA[<p>first:hexo g  &#x2F; scend:hexo s &#x2F; third:hexo d  &#x2F;  creat:hexo new ×××</p>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-keyword">first</span>:hexo g<br></code></pre></td></tr></table></figure><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-keyword">second</span>:hexo s<br></code></pre></td></tr></table></figure> <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-keyword">third</span>:hexo d <br></code></pre></td></tr></table></figure>  <figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vbnet"><span class="hljs-symbol">creat:</span>hexo <span class="hljs-built_in">new</span> ×××<br></code></pre></td></tr></table></figure>]]></content>
     
     
     
