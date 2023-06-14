@@ -1,0 +1,904 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/123.jpeg">
+  <link rel="icon" href="/img/123.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="int inserpre_seq(PSeqList palist,int p,DateType x)|{int p;if(palist-&gt;n&gt;&#x3D;palist-&gt;MAXNUM)|printf(“Overflow!\n”);return 0;}if(p&lt;0||p&gt;palist-&gt;n){    printf(“*not exist-&gt;n”);retur">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++">
+<meta property="og:url" content="http://example.com/2023/04/15/c/index.html">
+<meta property="og:site_name" content="Wht&#39;sblog">
+<meta property="og:description" content="int inserpre_seq(PSeqList palist,int p,DateType x)|{int p;if(palist-&gt;n&gt;&#x3D;palist-&gt;MAXNUM)|printf(“Overflow!\n”);return 0;}if(p&lt;0||p&gt;palist-&gt;n){    printf(“*not exist-&gt;n”);retur">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-15T01:26:47.000Z">
+<meta property="article:modified_time" content="2023-06-08T06:17:12.321Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>c++ - Wht&#39;sblog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="c++"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-15 09:26" pubdate>
+          April 15, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          10k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          84 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">c++</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>int inserpre_seq(PSeqList palist,int p,DateType x)|{<br>int p;<br>if(palist-&gt;n&gt;&#x3D;palist-&gt;MAXNUM)|<br>printf(“Overflow!\n”);<br>return 0;<br>}<br>if(p&lt;0||p&gt;palist-&gt;n){<br>    printf(“*not exist-&gt;n”);return 0;<br>}<br>for(q&#x3D;palist-&gt;n-1;q&gt;&#x3D;p;q–)<br>palist-&gt;element[q+1]&#x3D;palist-&gt;element[q];<br>palist-&gt;element[p]&#x3D;x;<br>palist-&gt;n&#x3D;palist-&gt;n+1;<br>return 1;}</p>
+<p>itn daleteP_seq(PSeqList palist,int p){<br>    int q;<br>    if(p&lt;0||p&gt;palist-&gt;n-1){<br>        printf(“Not exist!\n”);<br>        return 0;<br>    }<br>    for(q&#x3D;p;q<palist->n-1;q++)<br>    palist-&gt;element[q]&#x3D;palist-&gt;element[q+1];<br>    palist-&gt;n-palist-&gt;n-1;<br>    return 1;<br>}</p>
+<p>LinkList createNullList_link(void){<br>    LinkList 1list&#x3D;(LinkList)ma11oc(sizeof(struct Node));<br>    if(1list!&#x3D;NULL)1list-&gt;link&#x3D;NULL;<br>    else printf(“Out of space!\n”);<br>    return 1list;<br>}</p>
+<p>int isNullList_link(LinkList 1list){</p>
+<pre><code class="hljs">  return(1list-&gt;link==NULL);
+</code></pre>
+<p>}</p>
+<p>struct Node;<br>typedef styck Node<em>PNode;<br>stuct Node{<br>    DateTYpe info;<br>    Pnode  link;<br>};<br>typedef struct Node</em>LinkList;</p>
+<p>Pnode locate_link(LinkList 1list,DateTYppe x){<br>    PNode p;<br>    if(1list&#x3D;&#x3D;NULL)return NULL;<br>    p&#x3D;1list-&gt;link;<br>    while(p！&#x3D;NULL&amp;&amp;p-&gt;info!&#x3D;x)p&#x3D;p-&gt;link;<br>    return p;</p>
+<p>}</p>
+<p>int inserPost_link(LinkList 1list,PNode p;DateTYPE x){<br>    PNode q&#x3D;(PNode) malloc(sizeof(stuct Node));<br>    if(q&#x3D;&#x3D;NULL){<br>        printf(“Out of space!!!\n”);<br>        return0;</p>
+<pre><code class="hljs">&#125;
+else&#123;q-&gt;info=x;q-&gt;link=p-&gt;link;p-&gt;link=q;return 1 ;&#125;
+</code></pre>
+<p>}</p>
+<p>PNode locatePre_link(LinkList 1list,PNode p){<br>    PNode p1;<br>    if(1list&#x3D;&#x3D;NULL)return NULL;<br>    p1&#x3D;1list;<br>    while(p1!&#x3D;NULL&amp;&amp;p1-&gt;link!&#x3D;p)p1&#x3D;p1-&gt;link;<br>    return p1;<br>}</p>
+<p>int deleteV_link(LinkeList 1list,DateTYpe x)<br>{<br>    PNode p,q;<br>    p&#x3D;1list;<br>    if(p&#x3D;&#x3D;NULL)return0;<br>    while(p-&gt;1link!&#x3D;NULL&amp;&amp;p-&gt;link-&gt;info!&#x3D;x)<br>    p&#x3D;p-&gt;link;<br>    if(p-&gt;link&#x3D;&#x3D;NULL){<br>        printf(“Not exist!\n”);<br>        return 0;<br>    }</p>
+<pre><code class="hljs">else&#123;
+    q=p-&gt;link;
+    free(q);return 1;
+&#125;
+</code></pre>
+<p>}</p>
+<p>strct DoubleNode;<br>typedef stuct DoubleNode*PDoubleNode;<br>stuct DOubleNode{<br>    DateTYpe info;<br>    PDoubleNode 1linke,rlinke;</p>
+<p>};<br>struct Doub;eList{<br>    PDoubleNode head;<br>    PDoubleNode rear;<br>};</p>
+<p>#define MAXnum 100<br>#define FALSE 0<br>#define TRUE 1<br>typedef int DateTYpe;<br>void josephus_sqe(PSeqList palist,int s, int m){<br>    int s1,i,w;<br>    s1&#x3D;s-1;<br>    for(i&#x3D;palist-&gt;n;i&gt;0;i–){<br>        s1&#x3D;(s1+m-1)%1;<br>        w&#x3D;palist-&gt;element[s1];<br>        printf(“Out element%d\n”,w);<br>        deletep_seq(palist,s1);<br>    }<br>}<br>main()<br>{<br>    PSeqList jos_alist;<br>    int i,k;<br>    int n,s,m;<br>    prinf(“\n please input the values(&lt;100)of n&#x3D;”)<br>    scanf(“%d”,&amp;n);<br>    printf(“please input the valueof s &#x3D;”);<br>    scanf(“%d”,&amp;s);<br>    printf(“plese input the values of m&#x3D;”);<br>    scanf(“%d”&amp;m);<br>    jos_alist&#x3D;createNullList_seq(n);<br>    if(jos_alist!&#x3D;NULL){<br>        for(i&#x3D;0;i&lt;n;i++)<br>        insertype_seq(jos_alist,i,i+i);<br>        josephus_seq(jos-alist;s;m);<br>        free(jos_alist&#x3D;-&gt;element);<br>        free(jos_alist);<br>    }<br>}</p>
+<p>void pop_seq(PSeqStack pastack){<br>    if(pastack-&gt;t&#x3D;&#x3D;-1)<br>    printf(“”underflow!\n);<br>    else<br>    pastack-&gt;t&#x3D;pastack-&gt;pastack&#x3D;&gt;t-1;<br>}</p>
+<p>DateTYpe top_seq(PSeqStack pastack)</p>
+<p>{</p>
+<pre><code class="hljs">if(pastack-&gt;t==-1)
+printf(&quot;It os empty!\n&quot;);
+else
+return(pasteack-&gt;s[pastacl-&gt;t]);
+</code></pre>
+<p>}</p>
+<p>struck  Nodel<br>typedef struck Node*PNode;<br>struck Node{<br>    DateTYpe info;</p>
+<pre><code class="hljs">PNode link;
+</code></pre>
+<p>};</p>
+<p>struck LinkStack</p>
+<p>{<br>    PNode top;</p>
+<p>};</p>
+<p>typedef stuck LinkStack*PLinkStack;</p>
+<p>PLinkStack createEmpyStack_link(void)</p>
+<p>{</p>
+<pre><code class="hljs">PLinkStack plstack;
+plastack=(PLisnStack)malloc(sizeof(stuck LinkStack));
+
+if(plaStack!=NULL)
+platack-&gt;top=NULL;
+else
+
+printf(&quot;Out of space!\n&quot;);
+return platack;
+</code></pre>
+<p>}</p>
+<p>int  isEmptyStack_link(PLinkStack platack)<br>{<br>    return(plstack-&gt;top&#x3D;&#x3D;NULL);<br>}</p>
+<p>void push_link(PLinkStack plstack,DateTYpe x)<br>{<br>    PNode p;<br>    p&#x3D;(PNode)malloc(sizeof(sryck Node));<br>    if(p&#x3D;&#x3D;NULL)<br>    printf(“Out of space!\n”);<br>    else<br>    {<br>        p-&gt;info&#x3D;x;<br>        p-&gt;link&#x3D;plstack&#x3D;&gt;top;<br>        plstack-&gt;top&#x3D;p;<br>    }<br>}</p>
+<p>void pop_link(PLinkStack plstack){<br>    PNode p;<br>    if(isEmptyStack_link(plstack))<br>    printf(“Empty   stack pop.\n”);<br>    else<br>    {p&#x3D;plstack-&gt;top;<br>    plstack-&gt;top&#x3D;platack-&gt;top-&gt;link;<br>    free(p);</p>
+<pre><code class="hljs">&#125;
+</code></pre>
+<p>}</p>
+<p>DateTYpe top_link(PLinkStack plstack){<br>    if(pastack-&gt;top&#x3D;&#x3D;NULL)<br>    printf(“Stack is empty!\n”);<br>    else<br>    return(plastack-&gt;top-&gt;info)<br>}</p>
+<p>int fact(int n)<br>{<br>    int res&#x3D;n;<br>    if(n&gt;1)</p>
+<pre><code class="hljs">res=res*fact(n-1)
+return res;
+</code></pre>
+<p>}</p>
+<p>int face(int n)<br>{int res&#x3D;n;<br>if(n&gt;1)</p>
+<p>res&#x3D;res*fact(n-1)<br>return res;<br>}</p>
+<p>int nfact(int n ){<br>    int res;<br>    PSeqStack st;<br>    st&#x3D;createEmptyStack_seq(n);<br>    while(n&gt;0){<br>        push_seq(st.n);<br>        n&#x3D;n-1;<br>    }</p>
+<pre><code class="hljs">res=1;
+while(!isEmptyStack-seq(st))&#123;
+    pop_seq(st);
+&#125;
+free(st);
+return res;
+</code></pre>
+<p>}</p>
+<p>stuck seqQueque{<br>    int MAXNUM;<br>    int f,rl<br>    DateTYpe*q;</p>
+<p>};</p>
+<p>typedef stuct seqQueque*PSeqQueue;</p>
+<p>void enQueue_seq(PSeqQueue paqu,DateTYpe x){<br>    if(paqu-&gt;r+1)%MAXNUM&#x3D;&#x3D;paqe-&gt;f)</p>
+<p>printf(“Full queue.\n”);</p>
+<p>else{<br>    paqu-&gt;q[paqu-&gt;r]&#x3D;x;<br>    paqu-&gt;r&#x3D;(paqu-&gt;r+1)%MAXNUM;<br>}<br>}</p>
+<p>int main(){<br>{<br>    auto int a&#x3D;10l    &#x2F;&#x2F;aotu可省略，局部变量、自动变量</p>
+<pre><code class="hljs">return0;
+</code></pre>
+<p>}}<br>常见关键字:continue default do double  else enum   extern  float   for  goto   if   long  int  register   return  short   sighed   sizeof  static strct  switch  typerof  union unsigner  void  volatile  while </p>
+<p>计算机存储数据用于存储，存储在硬盘，内存或者寄存器，高速缓存存储器，内存和寄存器之间的高速缓存寄存器（cache）<br>计算机存储数据<br>寄存器    寄存器是访问速度最快，造价最高，空间大小最小<br>高速缓存  cache访问速度比内存快<br>内存  8G&#x2F;4G&#x2F;16G&#x2F;32G<br>硬盘 500G速度最慢，容量最大<br>cpu中央处理器，从内存拿数据到中央处理器，从下到上一步一步递进，存储体系的原因register</p>
+<p>int main(){<br>    register  int a&#x3D;10;     &#x2F;&#x2F;建议把A定义成寄存器变量<br>    寄存器是有限的不能过多</p>
+<pre><code class="hljs">   int a=10;
+   a=-2;
+   int定义的变量是由符号的
+   signed int;           //有符号数
+   unsigned in num=0;    //无符号数
+return 0;
+</code></pre>
+<p>}</p>
+<p>struct结构体关键字<br>typedft类型定义<br>union    联合体共用体<br>volatile  难度较大</p>
+<p>int main(){</p>
+<p>&#x2F;&#x2F;typedef类型定义&#x2F;类型重定义<br>&#x2F;&#x2F;张三，小三，别名<br>typefed unsigned int u int;<br> unsigned int uum &#x3D;20;<br> u int num2 &#x3D;20;<br>    return0;<br>}</p>
+<p>&#x2F;&#x2F;static修饰局部变量，局部变量的生命周期变长<br>&#x2F;&#x2F; static修饰全局变量改变变量的作用域，让静态的全局变量只能在自己所在的源文件出了源文件不能使用<br>&#x2F;&#x2F;static修饰函数改变函数的作用域，改变了函数的链接属性<br>&#x2F;&#x2F;static修饰函数时外部连接属性-&gt;内部连接属性</p>
+<p>void text(){<br>    static int a&#x3D;1;   &#x2F;&#x2F;a是静态的局部变量<br>    printf(“a&#x3D;%d\n,a);   &#x2F;&#x2F;非静态结果为五个2，静态结果为23456<br>}<br>  int main(){<br>      int i&#x3D;0;<br>      while(i&lt;5){<br>        test();<br>        i++;<br>      }</p>
+<pre><code class="hljs">return 0;
+</code></pre>
+<p>  }</p>
+<p>int main(){</p>
+<pre><code class="hljs">return  0;
+</code></pre>
+<p>}</p>
+<p>static int g_val&#x3D;2023;<br>int main(){<br>&#x2F;&#x2F;extern   声明外部符号<br>    printf(“g_val&#x3D;%d\n”,g_val);<br>    return 0;</p>
+<p>}</p>
+<p>外部文件:<br>static int Add(int s,int  y)<br>{<br>    int z&#x3D;s+y;<br>    return z;<br>}</p>
+<p>内部文件：<br>extern int Add(int,int);</p>
+<p>int main(){<br>int a&#x3D;20;<br>int b&#x3D;10;<br>int sum&#x3D;Add(a,b);<br>printf(“%d\n”,sum);<br>    return 0;<br>}</p>
+<p>define定义常量和宏<br>&#x2F;&#x2F;#define定义的标识符常量的方法<br>&#x2F;&#x2F;#define可以定义宏-带参数<br>Max(int x,int y){<br>    int a&#x3D;10;<br>    int b&#x3D;20;<br>}<br>#define MAX 100<br>int main(){<br>int a&#x3D;MAX;<br>int a&#x3D;10;<br>int b&#x3D;20;<br>Max(a,b)&#x3D;int max<br>printf(“max%d\n,max)<br>max&#x3D;MAX(a,b);<br>printf(“max&#x3D;%d\n”,max)</p>
+<pre><code class="hljs">return 0;
+</code></pre>
+<p>}</p>
+<p>&#x2F;&#x2F;宏的定义<br>#define MAX(X,Y)  (X&gt;Y?X:Y)<br>int main(){<br>int a&#x3D;MAX;<br>int a&#x3D;10;<br>int b&#x3D;20;<br>Max(a,b)&#x3D;int max<br>printf(“max%d\n,max)<br>max&#x3D;(a&gt;b?a:b)<br>printf(“max&#x3D;%d\n”,max)</p>
+<pre><code class="hljs">return 0;
+</code></pre>
+<p>}</p>
+<p>指针（内存）<br>地址-&gt;空间(房间)</p>
+<p>int main(){</p>
+<pre><code class="hljs">int a=10;  //4个字节，创建一个空间
+int* p=&amp;a;   //&amp;取地址a   ,有一种变量是用来存放地址的-指针变量
+printf(&quot;%p\n&quot;,&amp;a);
+ printf(&quot;%p\n&quot;,p);
+printf(&quot;%p\n&quot;,a);
+*p;   //*解引用操作符
+printf(&quot;%d\n,*a&quot;)
+return 0   ;
+</code></pre>
+<p>}<br>int a&#x3D;10;<br>int*p&#x3D;&amp;a;<br>*p&#x3D;20    &#x2F;&#x2F;解引用操作符</p>
+<p>int main(){<br>    char ch&#x3D;”w”;<br>   char*  pc&#x3D;&amp;ch;<br>   *pc&#x3D;’a’;<br>   printf(“%d\n”,sizeof(ch));<br>    return0;<br>}</p>
+<p>&#x2F;&#x2F;指针的大小   32为为4个字节，64位机器，地址64为bit为组成的二进制位   为8个字节<br>int main(){</p>
+<pre><code class="hljs">; //空语句=一个分号
+   int a=0;//分号一句语句的结束
+
+   
+return 0;
+</code></pre>
+<p>}</p>
+<p>if语句<br>if(表达式)<br>语句;</p>
+<p>if(表达式)<br>语句1;<br>语句2;<br>else<br>语句3；</p>
+<p>if(表达式1)<br>语句1;<br>else if(表达式2)<br>语句2;<br>else<br>语句3；</p>
+<p>int   main(){</p>
+<p>int age&#x3D;20;<br>if(age&lt;18&gt;)<br>   printf(“未成年\n”);<br>if(age&lt;18&gt;)<br>printf(“未成年\n”)<br>else<br>printf(“成年\n”)</p>
+<p>if(age&lt;18&gt;)<br>    printf(“未成年”)<br>else if(age&gt;18&amp;&amp; age&lt;28&gt;)<br>    printf(“青年”);<br>else if(age&gt;&#x3D;28&amp;&amp;age&lt;50)<br>    printf(“壮年”)<br>else if(age&gt;&#x3D;50 &amp;&amp; age&lt;90)<br>    printf(“老年”);<br>else(age&gt;90)<br>    printf(“长寿”);</p>
+<pre><code class="hljs">return0;
+</code></pre>
+<p>}<br>int  main()       &#x2F;&#x2F;{}一个大括号是一个代码块<br>{          </p>
+<pre><code class="hljs">int a=0;
+int b=1;
+if(a==1)&#123;
+    if(b==2)
+    printf(&quot;&quot;hehe) ;  
+
+else               //注意悬空else
+    printf(&quot;haha&quot;);
+    
+    return 0;           //最终的结果为
+&#125;
+       
+
+
+return 0;
+</code></pre>
+<p>}</p>
+<p>int main(){</p>
+<pre><code class="hljs">return 0;
+</code></pre>
+<p>}</p>
+<p>if书写形式的对比</p>
+<p>if(condition){</p>
+<pre><code class="hljs">return x;        //条件成立返回x，条件不成立返回y
+</code></pre>
+<p>}</p>
+<p>return y;</p>
+<p>if(condition){<br>    return x;<br>}</p>
+<pre><code class="hljs">            //条件成立返回x，条件不成立返回y
+</code></pre>
+<p>else{<br>    return y;</p>
+<p>}</p>
+<p>int main(){<br>    int num&#x3D;4;<br>    if(num&#x3D;5){      &#x2F;&#x2F;&#x3D;为赋值     &#x3D;&#x3D;为判断相等<br>        printf(“呵呵\n”);      &#x2F;&#x2F;结果为呵呵<br>    }</p>
+<pre><code class="hljs">                if(5==num)
+            &#123;
+                printf(&quot;呵呵\n&quot;);
+            &#125;
+return 0;
+</code></pre>
+<p>}</p>
+<p>判断一个数是否为奇数<br>输出1-100之间的奇数<br>int main(){<br>int i&#x3D;0;<br>while(i&lt;&#x3D;100){<br>    if(i%2&#x3D;&#x3D;1)<br>    printf(“%d\n”,i)<br>    i++<br>}<br>    return 0;</p>
+<p>while(i&#x3D;100)<br>{<br>    printf(“%d”,i)<br>    i+&#x3D;2;<br>}</p>
+<pre><code class="hljs">return 0;
+</code></pre>
+<p>}</p>
+<p>switch语句</p>
+<p>int main(){</p>
+<pre><code class="hljs">     int day=0;
+     scanf(&quot;%d&quot;,&amp;day);
+     if(day==1)
+     printf(&quot;星期一&quot;);
+     else if(day==2)
+     printf(&quot;星期二&quot;);
+return 0;
+</code></pre>
+<p>}</p>
+<p>switch(整形表达式){       &#x2F;&#x2F;必须为整型表达式<br>    条件语句<br>}</p>
+<p>int main()<br>{<br>    int day&#x3D;0;<br>         scanf(“%d”,&amp;day);<br>         switch(day);<br>         {<br>        case1:           &#x2F;&#x2F;case后面必须是整形不能是浮点型<br>            printf(“工作日”);<br>            break;<br>        case2:<br>            printf(“工作日”)<br>            break;<br>        case3:<br>            printf(“工作日”)<br>            break;<br>        case4:<br>            printf(“休息日”);<br>            break;       &#x2F;&#x2F;用于跳出switch语句</p>
+<pre><code class="hljs">default:
+     printf(&quot;输入错误\n&quot;)
+break;
+     &#125;
+return 0;
+</code></pre>
+<p>}</p>
+<p>int main(){<br>       int n&#x3D;1;<br>       int m&#x3D;2;<br>       switch(n){<br>        case 1: m++;<br>        case 2: n++;<br>        case 3:<br>        switch(n)       &#x2F;&#x2F;switch允许嵌套使用<br>        case1:n++<br>        case2:m++;n++;break;<br>       }</p>
+<pre><code class="hljs">   case1:m++;
+     berak;
+   default:
+    break;&#125;
+   printf(&quot;&quot;m=%d,n=%d\n,m,n)     //最终的答案为5 3
+return 0;
+</code></pre>
+<p>}<br>循环语句<br>while        for      do while<br>while(表达式)<br>循环语句</p>
+<p>int main()<br>{</p>
+<pre><code class="hljs">int i=1;
+  while()
+  &#123;printf(&quot;%d\n&quot;,i)
+
+i++&#125;
+return 0;
+</code></pre>
+<p>}</p>
+<p>int main(){<br>          if(i&#x3D;&#x3D;5)</p>
+<p>while(i&lt;10){<br>          break;<br>          printf(“%d”,i)</p>
+<pre><code class="hljs">      i++;&#125;
+return 0;
+</code></pre>
+<p>}</p>
+<p>int   main(){<br>     if(i&#x3D;&#x3D;5)<br>     {<br>        continue;<br>     printf(“%d”,i)     &#x2F;&#x2F;结果为1 2 3 4 continue的作用是结束本次循环后面的代码直接回到下次循环<br>     continue是终止本次循环的，也就是本次循环中continue后面的代码不会再执行，而是直接跳转到while语句的判断部分，进行下次循环的入口判断。<br>     i++</p>
+<pre><code class="hljs">&#125;
+
+return0;
+</code></pre>
+<p>}</p>
+<p>int main(){<br>          int ch&#x3D;getchae();<br>          putchar(ch);<br>          printf(“%c\n”,c)<br>         int ch&#x3D;0;<br>         while((ch&#x3D;gatchar())!&#x3D;EOF)<br>         {</p>
+<pre><code class="hljs">                           //EOF---end of file-&gt;-1
+        putchar(ch);       //结束需要ctrl+z
+     &#125;
+    
+return 0；
+</code></pre>
+<p>}</p>
+<p>int main(){<br>       char password[20]&#x3D;[0];<br>         printf(“请输入密码:”);<br>         scanf(“%s”,password)<br>         getchar();<br>         printf(“请确认(Y&#x2F;N):&gt;”)<br>         ret &#x3D;getchar():   &#x2F;&#x2F;Y&#x2F;N     getchr输入函数，输入缓冲区存放数据接收数据时输入缓冲区粗放123456\n去除123456缓冲区只剩下\n，读取一下\n<br>         if(ret&#x3D;&#x3D;’Y’)<br>         {</p>
+<pre><code class="hljs">        printf(&quot;确认成功\n&quot;);
+        else&#123;
+            print(&quot;放弃确认\n&quot;);    
+        &#125;
+     &#125;
+
+
+     printf(&quot;%d\n&quot;,&#39;\n&#39;);
+
+return 0;
+</code></pre>
+<p>}</p>
+<p>int main()<br>{</p>
+<pre><code class="hljs">int i=0;
+
+
+
+
+
+
+
+      //循环变量的初始化
+
+
+
+
+
+
+
+
+
+while(i&lt;10)&#123;
+    i++     //顺换变量的条件
+&#125;
+</code></pre>
+<p>   return 0;<br>}</p>
+<p>for(表达式1；表达式2，表达式3)<br>循环语句；<br>int main(){<br>           int i&#x3D;0;       &#x2F;&#x2F;初始化  判断  调整<br>           for(i&#x3D;1:i&lt;&#x3D;10:i++){</p>
+<pre><code class="hljs">            if(i==5)
+            break;           //打印的最终结果为1234
+            continue;        //打印的最终结果为1 2 3 4 6 7 8  9 10
+        printf(&quot;%d&quot;,i);
+       &#125;
+
+return    0;
+</code></pre>
+<p>}</p>
+<p>int main()<br>{<br>    int i&#x3D;1;<br>    while(i&lt;&#x3D;10){<br>        if(i&#x3D;&#x3D;5)<br>        continue;<br>        preintd(“%d\n”,i);<br>    i++;<br>    }<br>    return0;<br>}</p>
+<p>int main(){</p>
+<pre><code class="hljs">return 0;
+</code></pre>
+<p>}</p>
+<p>int main(){</p>
+<pre><code class="hljs">   int arr[10]=&#123;1,2,3,4,5,6,7,8,9,0&#125;
+   int i=0;        //10次循环 10次打印
+   for(i=0;i&lt;10;i++)&#123;
+    printf(&quot;%d\n&quot;,arr[i]);
+   &#125;
+
+return 0;
+</code></pre>
+<p>}</p>
+<p>&#x2F;&#x2F;for循环的初始化调整判断都可以省略但是for循环的判断部分1如果被省略那判断条件就是恒为正<br>2如果不是非常熟练建议大家不要随便省略</p>
+<p>int main()</p>
+<p>{<br>      for(::)<br>      {<br>        printf(“”hehe\n)      &#x2F;&#x2F;死循环<br>      }<br>    return0;<br>}</p>
+<p>int main(){</p>
+<pre><code class="hljs">return0;
+</code></pre>
+<p>}</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>c++</div>
+      <div>http://example.com/2023/04/15/c/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 15, 2023</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/30/JAVA7/" title="JAVA7">
+                        <span class="hidden-mobile">JAVA7</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

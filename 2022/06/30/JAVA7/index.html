@@ -1,0 +1,1471 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/123.jpeg">
+  <link rel="icon" href="/img/123.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Api String StringBulider">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA7">
+<meta property="og:url" content="http://example.com/2022/06/30/JAVA7/index.html">
+<meta property="og:site_name" content="Wht&#39;sblog">
+<meta property="og:description" content="Api String StringBulider">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-30T08:48:57.000Z">
+<meta property="article:modified_time" content="2023-06-14T02:11:59.574Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>JAVA7 - Wht&#39;sblog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JAVA7"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-30 16:48" pubdate>
+          June 30, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          13k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          110 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JAVA7</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="Api-String-StringBulider"><a href="#Api-String-StringBulider" class="headerlink" title="Api String StringBulider"></a>Api String StringBulider</h3><span id="more"></span>
+<pre><code class="hljs">API:
+public  class javatext&#123;
+    public static void main(String[] args) &#123;
+        Scanner sc= new Scanner(System.in);
+        String line =sc.nextLine();     //Ctrl+alt+V可以生成左边内容
+        System.out.println(line);
+    &#125;
+&#125;
+
+String:
+java程序中双引号字符串都是String类的对象
+特点：
+1字符串不可变，值在创建后不可改
+2值不可变，但可以被共享
+3字符串效果相当于字符数组(char[])但是底层原理是字节数组(byte[])
+构造方法:
+public String()
+public String(char[] chs)
+public String (byte[] byt)
+String s=&quot;abc&quot;;
+
+public  class javatext&#123;
+    public static void main(String[] args) &#123;
+       String s1 =new String();
+        System.out.println(s1);
+        char[]chs =&#123;&#39;a&#39;,&#39;b&#39;,&#39;c&#39;&#125;;
+        String s2=new String(chs);
+        System.out.println(s2);     //abc
+        byte[] bys=&#123;97,98,99&#125;;
+        String s3=new String(bys);
+        System.out.println(s3);    //abc
+        String s4=&quot;abc&quot;;
+        System.out.println(s4);    //abc
+    &#125;
+&#125;
+String特点
+1通过new创建的字符串对象，每一个new都会申请一个内存空间虽然内容相同，但地址不同
+2以&quot;&quot;给出的字符串，只要字符序列相同，无论海马中出现几次都会建立一个String对象并在字符串中维护
+ public static void main(String[] args) &#123;
+    char[] chs =&#123;&#39;a&#39;,&#39;b&#39;,&#39;c,&#39;&#125;;
+    String s1=new String(chs);
+    String s2=new String(chs);
+    System.out.println(s1 ==s2);    false
+    String s3 =&quot;abc&quot;;
+    String s4=&quot;abc&quot;;
+    System.put.println(s3 ==s4);    //true
+    System.out.println(s1 ==s3);    //false
+ &#125;
+ 字符串的比较:
+==
+基本类型：比较的是数值
+引用类型：比较的是地址值
+字符串是对象，他比较的内容是否相等，是通过一个方法来实现的，equals()
+public boolean equals(Object an Objecth)
+public static void main(String[] args) &#123;
+    char[] chs =&#123;&#39;a&#39;,&#39;b&#39;,&#39;c,&#39;&#125;;
+    String s1=new String(chs);
+    String s2=new String(chs);
+    String s3 =&quot;abc&quot;;
+    String s4=&quot;abc&quot;;
+    //字符串地址是否相同
+    System.out.println(s1 ==s2);    false
+    System.put.println(s3 ==s4);    //true
+    System.out.println(s1 ==s3);    //false
+    //字符串内容是否相同
+    System.put.println(s1.equals(s2));    //true
+    System.out.println(s1.equals(s3));   //true
+    System.out.println(s3.equals(s4));    //true
+ &#125;
+ 例子:已知用户名个密码，请用程序实现模拟登录，总共给三次机会登陆给出提示
+ public  class javatext&#123;
+    public static void main(String[] args) &#123;
+              String s1=&quot;wht&quot;;
+              String s2=&quot;123&quot;;
+              for(int i=0;i&lt;3;i++) &#123;
+                  Scanner sc = new Scanner(System.in);
+
+                  String name = sc.nextLine();
+                  String pwd = sc.nextLine();
+                  if (name.equals(s1) &amp;&amp; pwd.equals(s2)) &#123;
+                      System.out.println(&quot;登陆成功&quot;);
+                      break;
+                  &#125; else &#123;
+                      if (2-i ==0)&#123;
+                          System.out.println(&quot;账户锁定，请与管理管练习&quot;);
+                      &#125;else&#123;
+                      System.out.println(&quot;登陆失败，你还有&quot; +(2-i)+ &quot;次机会&quot;);
+   &#125;
+                  &#125;
+     &#125;
+    &#125;
+&#125;
+遍历字符串:键盘录入字符串，实用程序实现在控制台遍历该字符串:
+public  class javatext&#123;
+    public static void main(String[] args) &#123;
+    Scanner sc =new Scanner(System.in);
+        String line = sc.nextLine();
+        //System.out.println(line.charAt(0));    //a
+        //System.out.println(line.charAt(1));    //b
+        //System.out.println(line.charAt(2));    //c
+    //for (int i=0;i&lt;3;i++)&#123;
+        //System.out.println(line.charAt(i));    //abc
+        //System.out.println(line.length());    //5
+    //&#125;
+          for (int i=0;i&lt;line.length();i++)&#123;
+              System.out.println(line.charAt(i));   //abc
+          &#125;
+    &#125;
+&#125;
+统计字符次数：键盘录入一个字符串，统计该字符串大写字母小写字母数字出现的次数
+public  class javatext&#123;
+    public static void main(String[] args) &#123;
+    Scanner sc = new Scanner(System.in)&#123;
+         String line=sc.nextLine();
+         int a=0;
+         int b=0;
+                 int c=0
+                         for(int i=0;i&lt;line.length();i++)
+                             char ch=line.charAt(i);
+                         if(ch&gt;&quot;A&quot;&amp;&amp;ch&lt;=&quot;Z&quot;&#123;
+                             a++;
+        &#125;else if(ch&gt;&#39;a&#39;&amp;&amp;ch&lt;=&quot;z&quot;)&#123;
+             b++                
+        &#125;else if(ch&gt;&#39;0&#39;&amp;&amp;ch&lt;=9&#39;&#39;)&#123;
+                             c++
+        &#125;
+    &#125;
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+
+    &#125;
+    &#125;
+斌姐字符串：
+定义一个方法把int数组数据拼接成一个字符串返回，例如int[]arr=&#123;1,2,3&#125;;执行方法后输出[1,2,3]
+public  class javatext&#123;
+    public static void main(String[] args) &#123;
+                int[]arr=&#123;1,2,3&#125;;
+        String s = array(arr);
+        System.out.println(s);
+
+
+    &#125;
+            public static  String array(int[] arr)&#123;
+        String s=&quot;&quot;;
+        s+=&quot;[&quot;;
+        for (int i=0;i&lt;arr.length;i++)&#123;
+            if (i==arr.length-1)&#123;
+                s+=arr[i];
+            &#125;else &#123;
+                s+=arr[i];
+                s+=&quot;, &quot;;
+            &#125;
+        &#125;
+        s+=&quot;]&quot;;
+        return s;
+            &#125;
+    &#125;
+字符串反转:
+public  class javatext&#123;
+    public static void main(String[] args) &#123;
+        Scanner sc =new Scanner(System.in);
+        String line =sc.nextLine();
+        String s =reverse(line);
+        System.out.print(s);    //cda
+        &#125;
+       public static String reverse(String s)&#123;
+                String ss=&quot;&quot;;
+                for(int i=s.length()-1;i&gt;=0;i--)&#123;
+
+                    SS +=s.charAT(i);
+                &#125;
+
+                return ss;    
+        
+        &#125;
+       &#125;
+        &#125;
+    public class javatext&#123;
+        public station void main(String[] args)&#123;
+            SCanner sc =new Scanner(System.in);
+            String line =sc.nextline();
+            String s=reberse(line)l
+            System.out.print(s);
+
+        &#125;
+        public static String reverse()
+    &#125;
+    
+     public vlass   jvatext&#123;
+        public station void main&#123;String[] agrs&#125;&#123;
+            Scanner sc=new Scanner(System.in);
+            String line =sc.nextline();
+            String s=reberse(line)1
+            Systrm.out.rpint(s);
+        &#125;
+        public station String reverse()
+     &#125;
+    public class jvatext&#123;
+        public static void main(String[] args)&#123;
+            Scanner sc=new Scannner(System.in);
+            String line=sc.nextline();
+            String s =reverse(line);
+            System.out.print(s);
+
+        &#125;
+        public static String reverse(String s)&#123;
+            String ss=&quot;&quot;;
+            for(int i=s.length()-1;i&gt;=0;i--)&#123;
+                ss =+s.charAi(i);
+            &#125;
+            return ss;
+        &#125;
+    &#125;
+
+
+
+        #define _CRT_secure_no_warntngs
+
+    //std-标准 stndard input output
+    //标准输入输出文件
+        #include  &lt;studio.h&gt;
+
+
+        int   main()
+        &#123;
+
+            printf(&quot;hehe\n&quot;);
+
+            retun 0 ;
+        &#125;
+
+
+        //int 是整数的意思
+        //main前面的int是表示main函数调用返回一个整型值
+        int main()
+        &#123;
+
+            retun 0;   //返回0
+        &#125;
+
+    &#125;
+
+      int main()&#123;
+     
+
+       //printf打印函数
+
+       // #incude 包含文件
+      printf(&quot;hellow   bite&quot;);
+
+
+    return 0;
+   &#125;
+
+
+   #include  &lt;studio.h&gt;
+
+ int main()
+
+ &#123;
+
+    printf(&quot;hellw/m&quot;)
+    retunrn0;
+ &#125;
+   
+   //chart  //字符型数据类型
+   short  // 短整型
+   int    //整形
+   long    //长整型
+    longlong  //长整型
+    float   //单精度浮点型
+    double  //双精度浮点型
+    intd main() 
+
+    &#123;
+
+        //$d 打印整形
+        //%c  打印字符
+        //%f =打印浮点小数打印小鼠
+        //%p  打印地址的形式打印
+        //%x 打印十六进制数字
+
+                char ch=&#39;A&#39;;   //&#39;A&#39;;//内存 
+
+        printf(&quot;%c&quot;);//%c打印字符格式的数据
+        short int//短整型
+        //int  整形
+        //long 长整型
+        long num=100;
+        printf(%d/n)
+        int age=20  ;
+        printf(%d) //%d打印整形十进制数据
+
+
+        float f=5.0;
+        print(&quot;%f\n&quot;,f);
+
+
+
+        fouble d=3.14;
+        printf(&quot;%lf\n&quot;,d)
+        return 0;
+    &#125;   
+
+
+    int main()
+    &#123;
+        printf(&quot;%d\n&quot;,sizeof(char));//    1   
+        printf(&quot;%d\n&quot;,sizeof(short));//   2
+        printf(&quot;%d\n&quot;,sizeof(int));//     4
+        printf(&quot;%d\n&quot;,sizeof(long));//    4/8
+        printf(&quot;%d\n&quot;,sizeof(longlong));//8
+        printf(&quot;%d\n&quot;,sizeof(float));//   4
+        printf(&quot;%d\n&quot;,sizeof(double));//  8
+
+        int age =20; //4  32
+        short age=20; // 2 16
+        retun 0;
+   //字节 
+     计算机单位
+      bit 比特位  计算机是硬件--通电
+         正电(1) 负电(0)
+         二进制  0 1
+         十进制 0-9 
+         十二进制0-B
+
+
+      byte 字节
+      1个字节=8比特位
+      kp  mb  gb tb  pb //1024进制
+
+
+        //c语言标准规定
+        sizeof(long)&gt;sizeof(int)
+    &#125;
+    int main()
+    &#123;
+        short age=20; //向内存申请两个字节=16bit位，用来存放20
+        float weight =95.6f;//像内存申请4个字节
+
+        return 0;
+    &#125;
+    
+
+    int a=100;//全局变量，定义在代码块之外的变量
+    int main()
+    &#123;
+    
+        int a=10;//局部变量和全局变量名字建议不要想同荣夷吾为产生bug，当局部变量和全局变量名字相同的时候，局部变量优先。
+        //局部变量定义在代码块内部的变量
+        printf(&quot;%d\n&quot;,a);
+        return 0;
+        
+    &#125;
+
+    int main()
+    &#123;
+        //计算两个数的和
+        int num 1=0;
+        int num2  =0;
+        int sum = 0;
+        //输入数据使用输入函数scanf
+        scanf(&quot;%d%d&quot;,&amp;num1,&amp;num2);//&amp;取地址符号 
+        /c语言与法规定，变量要定义在当前代码块的最前面
+        sum=num1+num2;
+        printf(&quot;%d\n&quot;,sum);
+        retun 0;
+    &#125;
+  
+
+   int main()
+   
+  int global=2020;  //全局变量的作用域
+  void text()&#123;
+    printf(&quot;text()--%d&quot;,global);
+  &#125;
+   &#123;
+    int num=0; //聚币变量的作用域
+    printf(&quot;num=%d\n&quot;,num);
+    return 0;
+               //
+   &#125;
+
+
+
+   int g_val=2021;
+   printf(&quot;g_val=%d\n,g_val)//未声明的标识符
+   extern int g-val //extern声明外部文件
+   int main()&#123;
+    &#123;
+        int a =10;
+        printf(&quot;a=%d\n&quot;,a);//ok
+    &#125;
+    printf(&quot;a=%d\n&quot;,a); //error
+    return 0;
+   &#125;   //全局变量的生命周期是整个程序的生命周期
+   
+
+    //scanf是c语言提供的
+    scanf-s不是标准c语言提供的，vs编译器所提供的
+    不具有跨平台性/可移植性
+    //scanf
+    /strcpy
+    //strien
+    //straet
+    //不安全的文件
+    //strupy_s    //vs编译器所提供的
+
+//加在源文件的第一行#define....
+
+   int main()&#123;
+    &#123;
+        const int num =3;//字面常量 const为常属性
+        /const修饰的常变量
+        3//字面变量
+        3.14//字面常量
+        printf(&quot;%d/n&quot;,num);
+        num=9;
+        printf(&quot;%d\n&quot;,num);
+       
+        return 0;
+           
+
+            int n=10;
+             int arr[10]=&#123;0&#125;;
+
+             
+             const intb-10;  //n是变量，但是又有常属性，所以我们说n是常变量
+             int arr[b]; //error
+             b=20;
+ &#125; 
+  &#125;
+
+
+
+int main()
+ #define  MAX10&#123;
+   //#defin定义的标识符常量
+        int arr[MAX]=[0];
+        printf(&quot;%d\n,MAX);
+
+        return 0;
+
+    
+&#125;
+
+//枚举常量
+枚举一一列举
+//性别：男，女，保密
+//三原色：红，黄，蓝
+//星期：1，2，3，4，5，6，7
+//枚举关键字-enum
+enum Sex&#123;
+MALE,
+FEMALE,
+SECRET
+&#125;;
+
+//MALE ,FEMALE SECRET 枚举常量
+int main()&#123;
+
+enum Sex s=MALE;
+
+printtf(&quot;%d\n&quot;,MALE);
+printtf(&quot;%d\n&quot;,FEMALE);
+printtf(&quot;%d\n&quot;,SECRET);
+    return 0;
+
+&#125;
+
+
+int  main() enum Color&#123;
+        RED ,
+        YELLOW ,
+        BLUE
+    &#125;;
+    
+    
+    &#123;
+enum Color clolr=BLUE;
+
+color =YELLOW;
+BLUE=6;    //error
+    return 0;   //大括号里面的枚举常量不可改
+&#125;
+//枚举关键字-enum
+ &quot;abcdef&quot;
+    &quot;hellow  bit&quot;
+     &quot;  &quot;  //空字符串
+
+int main()&#123;
+   char arr1[]=&quot;abc&quot;
+
+   //&quot;abc&quot;里面不只有abc还有个”0“ 0
+指的是字符串的结束标志  
+   char arr2[]=&#123;&#39;a&#39;,&#39;b&#39;,&#39;c&#39;&#125;   //数组的类型可以直接定义
+   printf(&quot;$s\n&quot;,arr1);   //打印结果为abc
+   printf(&quot;%s\n&quot;,arr2);   //打印结果出错
+//字符串的结束标志是一个\0的转移定义
+每个字符的值都有一个定义范围0-72
+//a--97      A---65    ASCII编码方式   ASCII码值
+
+    return 0;
+    打印字符串的时候需要用到ASCII码编码
+
+
+&#125;
+
+
+int main()&#123;
+
+    char arr[]=&quot;abc&quot;
+    char  arr2[]=&quot;a&quot;&quot;b&quot;&quot;c&quot;;
+    printtf(&quot;&quot;%d\nstrken(arr1) ,)//strlen -string length计算字符串长度  计算结果为3
+    printf(&quot;%d\n&quot;,strlen(arr2)); //  计算结果为15(叫做随机值)      \0是字符串的结束标志
+
+    若&quot;a&quot;&quot;b&quot;&quot;c&quot;&quot;\0&quot;则最终结果为3
+return 0;
+
+&#125;  
+
+
+int main()&#123;
+
+    char  arr1[]=&quot;abcde&quot;&#39;
+    char   arr2[]=&quot;a&quot;&quot;b&quot;&quot;c&quot;&quot;d&quot;;
+
+    printf(&quot;%d\n&quot;,strlen(arr1));
+    print(&quot;%d\n&quot;,strlen(arr2));
+    return 0;
+
+    
+    &#125;
+转义字符：
+转变原来的意思
+
+
+int main()&#123;
+
+    printf(&quot;abc\n&quot;) 
+    printf(&quot;%c\n&quot;,&#39;b&#39;);
+    printf(&quot;$c\n&quot;,&#39;\&#39;&#39;),//单引号依旧可以打印出来
+    printf(&quot;%c\n&quot;,&quot;\&quot;&quot;) // 斜杠是用来转移其他字符的 //\n为换行，转义字符的一种
+    return 0;
+
+&#125;
+  
+
+
+  int main()&#123;
+
+    printf(&quot;c:\\text\\32\\text.c&quot;);   //这里的、也是转义符    \t水平制表符(TAB键),双斜杠用于表示一个反斜杠，防止被解释为一个转移符号
+
+    return 0;
+  &#125;
+
+
+
+  //   \?   在书写连续多个问好时使用，防止他们被解析撑伞字母词
+  // \`  用于表示字符常量
+  // \: 用于表示一个字符串内部的双引号
+  // \a 警告字符
+  // \b 退格符
+  // \f 进支付
+  // \n 换行
+  // \r 回车
+  // \t 水平制表符
+  // \v垂直制表符
+  // \ddd  ddd表示1-3个八进制的数字列入:\130 x
+  // \xdd dd表示2个十六进制数字 列入:\30
+
+
+
+  int marn()&#123;
+
+    printf(%d\n),strlen(&quot;c:\text\32\test.c&quot;));
+    printf(&quot;%d\n&quot;,&#39;\32&#39;);   //转化成十进制作为ASCII码对应的字符
+    printf(&quot;%d\n&quot;,&#39;132&#39;)  //把132堪称8进制转化成十进制来查看结果输出的结果为大写的Z
+    
+    
+    //输出的结果为12   \32---32是两个八进制数字
+    32作为8进制代表的那个十进制数字作为ASCII码对应的字符
+    32---&gt;10进制数字 26---？作为ASCII码代表的数值
+    return 0;
+  &#125;
+
+
+int  main()&#123;
+
+    printf(&quot;%d\n&quot;,&#39;\x61&#39;);   //输出的结果为A   、61为16进制转换为10进制来计算
+
+    return 0;
+
+&#125;
+
+
+//c语言风格的注释/* */ 不能嵌套 
+c++风格的注释//可以嵌套
+int main()&#123;
+
+
+    printf(&quot;%d \n&quot;,&quot;&quot;)
+     return 0;
+
+&#125;
+
+
+
+//选择语句
+
+
+int main()&#123;
+  int input=0;
+    printf(&quot;加入bit\n&quot;);
+    printf(&quot;你要好好学习吗?(1,2&gt;&quot;);
+
+    scanf(&quot;%d&quot;,&amp;inout); //1/0
+    if(input==1)
+    printf(&quot;好offer\n&quot;);
+    else
+    printf(&quot;卖红薯\n&quot;);
+&#125;
+
+
+int main()&#123;
+         printf(&quot;加入比特\n&quot;)；
+
+         while(line&lt;20000)
+        &#123; printf(&quot;桥一行代码\n&quot;);
+
+
+        line++;
+&#125;
+        printf(&quot;好offer&quot;);
+    return 0;
+&#125;
+
+int ADD( int x;int y)&#123;
+    intz=x+y;
+    return z;
+&#125;  //函数集里面为    ADD函数为自定义函数还有种为库函数
+int main()&#123;
+         int num1=10;
+         int num2=20;
+         int sum =0;
+         int a =100;
+         int b=200;
+         //sum=num1+num2;
+         sum=ADD(num1,num2);
+         sum=ADD(a,b)；
+         sum =ADD(2，3)；
+         //sum=a+b;
+         printf(&quot;sum=%d\n&quot;,sum);
+         return 0；
+&#125;
+
+
+int main()&#123;
+       int arr[10]= &#123;1,2,3,4,5,6,7,8,9,0&#125;; //定义一个存放是个整型数字的数组
+       //char ch[20];
+       //float arr2[5];
+       int i=0;
+       while(i&lt;10)
+       &#123;
+        printf(&quot;&quot;%d\n),arr[i];
+        i++;
+       &#125;
+       printf(&quot;%d\n&quot;,arr[4])  //得出的结果为5
+    return 0;
+&#125;
+
+
+//arr
+
+      1234567890
+下标：0123456789
+下标从0开始计算
+arr[下标]
+
+//操作符
+算术操作符/移位操作符/位操作符/
+
+int main()&#123;
+    int a=5/2;  //取模
+    printf(&quot;%d\n&quot;,a);
+    return 0;
+&#125;
+
+
+int main()&#123;
+
+         //&lt;&lt;左移
+         &gt;&gt;右移
+         int a=1;
+         //整形1占4个字节32个bit位
+        000000000000000000000000000001
+         int b=a&lt;&lt;1;
+        //000000000000000000000000000010
+        printf(&quot;%d\n&quot;,b);
+        print(&quot;%d\n&quot;,a);  //对A进行左移或者右移啊、
+        的值不变
+        
+    return 0;
+&#125;
+
+//二进制 1        1          1      1
+        1^*2^3   1*2^2    1*2^1   1*2^0
+        8         4          2      1
+
+13       1         1          0      1
+
+ int main()&#123;
+   //2进制位操作
+   //&amp;按位与
+   //|按位或
+   //^按位异或
+   int a=3;
+   int b=5;
+   int c=a&amp;b;
+   //011   101   == 111为c的最终值
+   int d =a^b;   //011    101 ==110  
+  按位异或的计算规则，对应的二进制为相同则为0，对应的二进制位相异则为1 
+
+
+    return 0;
+
+&#125;
+//赋值操作符
+
+
+int main()&#123;
+
+    int a-10;
+    a-20;    //赋值      ==判断相等
+    a=a+10;
+    a+=10;   //与上方等价
+    a=a-20
+    a-+20;      //与上方的等价
+    //符合赋值符
+    //=+ -+ ……= %=  ￥=  &amp;=
+
+    return 0;
+&#125;
+
+//单目操作符    
+//双目操作符
+//三目操作符
+int main()&#123;
+    inta =10;
+    int b=20;
+    a+b;  //双目操作符
+    return 0;
+&#125;
+int main()&#123;
+    inta =10;
+   printf(&quot;%d\n&quot;,a);  //最终的结果为10
+   printf(&quot;%d\n&quot;,!a); //最终的结果为0
+    return 0;
+&#125;
+
+
+//1  罗基范操作
+//-负值
+//+正值
+//&amp;取地址
+//sizeof  操作数的类型长度（以字节为单位）
+//~  对一个数的二进制为按位取反
+//————前置，后置--
+//++   前置，后置++
+//* 间接访问操作符（解引用操作符）
+//（类型）强制类型转换
+
+int main()&#123;
+
+    int a=10;
+  printf(&quot;%d\n&quot;,sizeof(a));     //4
+  printf(&quot;%d\n&quot;,sizeof(int));    //sizeof计算的是变量或者类型所占的空间大小，单位是字节    4
+printf(&quot;%d\n&quot;,sizeofa);      /括号可以省略4
+printf(&quot;%d\n&quot;,sizeofint);    //答案出错
+
+    return 0;
+&#125;
+int   main()&#123;
+    int arr[10]=&#123;0&#125;   //10个整形元素的数组
+    //10*sizeof(int)=40
+    print(&quot;%d\n&quot;,sizeof(arr));
+    //计算数组的元素个数
+    //sizeof数组总大小，每个元素的大小
+    sz=sizeof(arr)/sizeof(arr[0]);
+    printf(&quot;sz=%d\n&quot;,sz);
+    return 0;
+&#125;
+
+
+int main()&#123;
+      
+     //字符串的结束标志位&#39;\0&#39;
+
+     //&#39;\0&#39;  转义字符-0
+     //0    数字0
+     //&#39;0&#39; -&gt;字符0     48
+
+    return 0;
+&#125;
+
+
+int main()&#123;
+     printf(&quot;%d\n&quot;,strlen(&quot;c:\text\121\0&quot;))
+
+    return 0;
+&#125; 
+int main()&#123;
+    int a=10l
+    int arr[]=&#123;1,2,3,4,5,6&#125;;     //6*4=24---》int[6]
+    printf(&quot;%d\n&quot;,sizeof(a));    //4 
+    printf(&quot;%d\n&quot;,sizeof(int));  //4
+     printf(&quot;%d\n&quot;,sizeofa);    //4
+      printf(&quot;%d\n&quot;,sizeofint);  //error
+       printf(&quot;%d\n&quot;,sizeof(arr));    //计算数组大小，单位是字节
+       printf(&quot;%d\n&quot;,sizeof(arr)/sizeof(arr[0]));  //6
+    return 0;
+&#125;
+
+
+
+int main()&#123;
+
+    int a=0;     //4个字节，32bit位
+    int b=~a;//b是有符号的整形
+    //~按(2进制)位取反
+    printf(&quot;%d\n&quot;,b);//结果为-1，使用的打印的是这个数的原码
+    //原码，反码，补码
+    //附属在内存中存储的是二进制补码
+    return 0;
+
+&#125;
+
+
+int main()&#125;
+
+int a=10;
+int b=a++; //后置++,先使用后++
+int b=++a; //前置++,先++再使用  //11  11
+printf(&quot;a=%d b=%d\n&quot;,a,b);//11  10
+return 0;
+
+
+
+int main()&#123;
+    int a =(int)3.14;
+
+    
+    
+    return 0;
+&#125;
+
+关系操作符&gt;=   !=不相等     ==相等
+逻辑操作符 &amp;&amp;   逻辑与   ||逻辑或
+int main()&#123;
+    int a=3;
+    int b=5;
+    int c=a&amp;&amp;b;
+    int d= a||b;
+    printf(&quot;%d\n&quot;,c);
+    printf(&quot;%d\n&quot;,d)
+    return 0;
+&#125;
+条件操作符
+e1?e2:e3
+逗号表达式
+e1,e2,e3,e4...en
+
+
+int main()&#123;
+
+    int a=10;
+    int b=20;
+    int max=0;
+    if(a&gt;b)
+    return 0;
+&#125;
+
+
+
+</code></pre>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JAVA7</div>
+      <div>http://example.com/2022/06/30/JAVA7/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 30, 2022</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/04/15/c/" title="c++">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">c++</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/29/JAVA6/" title="JAVA6">
+                        <span class="hidden-mobile">JAVA6</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
